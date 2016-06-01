@@ -165,6 +165,13 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.sign_out_menu) {
+            mFirebaseAuth.signOut();
+            Auth.GoogleSignInApi.signOut(mGoogleApiClient);
+            mUsername = ANONYMOUS;
+            startActivity(new Intent(this, SignInActivity.class));
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 

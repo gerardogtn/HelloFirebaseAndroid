@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity
     private void loginUser() {
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
-        if (mFirebaseUser != null) {
+        if (mFirebaseUser == null) {
             startActivity(new Intent(this, SignInActivity.class));
             finish();
         } else {
